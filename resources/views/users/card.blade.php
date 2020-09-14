@@ -9,3 +9,6 @@
 </div>
 {{-- フォロー／アンフォローボタン --}}
 @include('user_follow.follow_button')
+
+{{-- お気に入り/お気に入り削除ボタン --}}
+@include('user_favolite.favolite_button')

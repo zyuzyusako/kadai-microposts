@@ -62,4 +62,49 @@ class UsersController extends Controller
         ]);
     }
     
+    
+    //[課題]お気に入りの一覧
+     public function favolites($id)
+    {
+        // idの値でユーザを検索して取得
+        $user = User::findOrFail($id);
+
+        // 関係するモデルの件数をロード
+        $user->loadRelationshipCounts();
+
+        // ユーザのお気に入り一覧を取得
+        $favolites = $user->favolites()->paginate(10);
+
+        // お気に入りー一覧ビューでそれらを表示
+        return view('users.favolites', [
+            'user' => $user,
+            'users' => $favolites,
+        ]);
+    }
+
+    /**
+     * ユーザの削除されたお気に入り一覧ページを表示するアクション。
+     *
+     * @param  $id  ユーザのid
+     * @return \Illuminate\Http\Response
+     */
+    public function unfavolites($id)
+    {
+        // idの値でユーザを検索して取得
+        $user = User::findOrFail($id);
+
+        // 関係するモデルの件数をロード
+        $user->loadRelationshipCounts();
+
+        // ユーザの削除されたお気に入り一覧を取得
+        $unfavolites = $user->unfavoliters()->paginate(10);
+
+        // 削除されたお気に入り一覧ビューでそれらを表示
+        return view('users.unfavolites', [
+            'user' => $user,
+            'users' => $unfavolites,
+        ]);
+    }
+        
 }
+    
