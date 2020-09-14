@@ -246,11 +246,6 @@ class User extends Authenticatable
     }
     
     
-    
-    
-    
-    
-    
     //[課題追加2]以上
     
     
@@ -262,6 +257,6 @@ class User extends Authenticatable
     public function loadRelationshipCounts()
     {
         //[課題]お気に入り追加
-        $this->loadCount(['microposts', 'followings', 'followers','favolite']);
+        $this->loadCount(['microposts', 'followings', 'followers','favolites']);
     }
 }

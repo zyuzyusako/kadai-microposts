@@ -12,11 +12,5 @@
             {{-- ユーザ一覧 --}}
             @include('users.users')
         </div>
-        <div class="col-sm-8">
-            {{-- タブ --}}
-            @include('users.navtabs')
-            {{-- お気に入り一覧 --}}
-            @include('users.favolites')
-        </div>
     </div>
 @endsection

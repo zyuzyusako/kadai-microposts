@@ -16,15 +16,5 @@
             {{-- 投稿一覧 --}}
             @include('microposts.microposts')
         </div>
-        
-        <div class="col-sm-8">
-            {{-- タブ --}}
-            @include('users.navtabs')
-            @if (Auth::id() == $user->id)
-            {{-- お気に入り登録フォーム --}}
-            @include('microposts.form')
-            @endif
-            {{-- お気に入り一覧 --}}
-            @include('microposts.microposts')
     </div>
 @endsection
